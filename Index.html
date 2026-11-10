@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedPar LTDA - Importación de Repuestos</title>
+</head>
+<body>
+
+    <!-- Encabezado y Navegación Principal (RF-01) -->
+    <header>
+        <div>
+            <h1>RedPar LTDA</h1>
+            <p>Importación y comercialización de repuestos para camiones y buses (Scania, Volvo, ZF)</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="#cotizacion">Cotización</a></li>
+                <li><a href="#ingreso">Ingreso</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <!-- Sección 1: Inicio -->
+        <section id="inicio">
+            <h2>Bienvenido a RedPar LTDA</h2>
+            <p>Encuentra repuestos originales y alternativos para camiones, buses y transmisiones pesadas con disponibilidad de stock en tiempo real.</p>
+            <article>
+                <h3>Información de la Sucursal</h3>
+                <p><strong>Dirección:</strong> Freire 98, Local 1, Concepción, Región del Biobío.</p>
+                <p><strong>Horarios:</strong> Lunes a Viernes de 08:30 a 18:00 hrs.</p>
+            </article>
+        </section>
+
+        <hr>
+
+        <!-- Sección 2: Catálogo y Búsqueda (RF-02, RF-03, RF-04, RF-10) -->
+        <section id="catalogo">
+            <h2>Catálogo de Repuestos</h2>
+
+            <!-- Filtros de búsqueda -->
+            <form>
+                <fieldset>
+                    <legend>Buscar y Filtrar Repuestos</legend>
+                    <label for="buscar">Buscar:</label>
+                    <input type="text" id="buscar" name="buscar" placeholder="Nombre, código o marca...">
+                    
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria">
+                        <option value="">Todas las categorías</option>
+                        <option value="frenos">Sistema de Frenos</option>
+                        <option value="motor">Motor</option>
+                        <option value="transmision">Transmisión</option>
+                    </select>
+
+                    <label for="marca">Marca Compatible:</label>
+                    <select id="marca" name="marca">
+                        <option value="">Todas las marcas</option>
+                        <option value="scania">Scania</option>
+                        <option value="volvo">Volvo</option>
+                        <option value="iveco">Iveco</option>
+                        <option value="zf">ZF</option>
+                    </select>
+
+                    <button type="submit">Aplicar Filtros</button>
+                </fieldset>
+            </form>
+
+            <br>
+
+            <!-- Lista de productos / Grilla -->
+            <article>
+                <h3>Pastillas de Freno Delanteras</h3>
+                <p><strong>Código:</strong> 0001</p>
+                <p><strong>Marca compatible:</strong> Scania</p>
+                <p><strong>Categoría:</strong> Frenos</p>
+                <p><strong>Precio:</strong> $99.990 (IVA inc.)</p>
+                <p><strong>Estado Stock:</strong> <span>Disponible (12 unidades)</span></p>
+                
+                <details>
+                    <summary>Ver detalle del repuesto</summary>
+                    <p>Especificaciones técnicas completas, origen del repuesto, compatibilidad de años y modelos de camiones Scania serie P/G/R.</p>
+                </details>
+                
+                <br>
+                <button type="button">Agregar al Carrito</button>
+                <button type="button">Solicitar Cotización</button>
+            </article>
+
+            <br>
+
+            <article>
+                <h3>Filtro de Aceite</h3>
+                <p><strong>Código:</strong> 0002</p>
+                <p><strong>Marca compatible:</strong> Volvo</p>
+                <p><strong>Categoría:</strong> Motor</p>
+                <p><strong>Precio:</strong> $18.500 (IVA inc.)</p>
+                <p><strong>Estado Stock:</strong> <span>Últimas unidades (30 disponibles)</span></p>
+                
+                <details>
+                    <summary>Ver detalle del repuesto</summary>
+                    <p>Filtro blindado de alta eficiencia para motores Volvo FH/FM.</p>
+                </details>
+
+                <br>
+                <button type="button">Agregar al Carrito</button>
+                <button type="button">Solicitar Cotización</button>
+            </article>
+
+            <br>
+
+            <article>
+                <h3>Kit de Embrague</h3>
+                <p><strong>Código:</strong> 0003</p>
+                <p><strong>Marca compatible:</strong> Volvo</p>
+                <p><strong>Categoría:</strong> Transmisión</p>
+                <p><strong>Precio:</strong> $150.000 (IVA inc.)</p>
+                <p><strong>Estado Stock:</strong> <span>Sin disponibilidad</span></p>
+
+                <details>
+                    <summary>Ver detalle del repuesto</summary>
+                    <p>Kit completo de prensa y disco de embrague para transmisiones pesadas.</p>
+                </details>
+
+                <br>
+                <button type="button" disabled>Agotado</button>
+                <button type="button">Solicitar Cotización / Consulta</button>
+            </article>
+        </section>
+
+        <hr>
+
+        <!-- Sección 3: Carrito de Compras (RF-05, RF-07) -->
+        <section id="carrito">
+            <h2>Carrito de Compras</h2>
+            
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Producto</th>
+                        <th>Precio Unitario</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0001</td>
+                        <td>Pastillas de Freno Delanteras</td>
+                        <td>$99.990</td>
+                        <td>1</td>
+                        <td>$99.990</td>
+                        <td><button type="button">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <td>0002</td>
+                        <td>Filtro de Aceite</td>
+                        <td>$18.500</td>
+                        <td>2</td>
+                        <td>$37.000</td>
+                        <td><button type="button">Eliminar</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Total (IVA Incluido):</th>
+                        <td colspan="2"><strong>$136.990</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <br>
+
+            <!-- Sistema de pago y entrega -->
+            <form>
+                <fieldset>
+                    <legend>Opciones de Entrega y Pago</legend>
+                    
+                    <p><strong>Tipo de Entrega:</strong></p>
+                    <input type="radio" id="retiro" name="entrega" value="retiro" checked>
+                    <label for="retiro">Retiro en Tienda (Freire 98, Local 1, Concepción)</label><br>
+                    <input type="radio" id="despacho" name="entrega" value="despacho">
+                    <label for="despacho">Despacho a Domicilio</label>
+
+                    <p><strong>Medio de Pago:</strong></p>
+                    <select name="medio_pago" id="medio_pago">
+                        <option value="webpay">Webpay / Débito / Crédito</option>
+                        <option value="transferencia">Transferencia Bancaria Directa</option>
+                    </select>
+
+                    <br><br>
+                    <button type="submit">Proceder al Pago / Finalizar Pedido</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Sección 4: Solicitud de Cotización (RF-06) -->
+        <section id="cotizacion">
+            <h2>Solicitar Cotización de Repuesto</h2>
+            <p>Si buscas un repuesto específico o requieres volumen para empresa, envía tu solicitud:</p>
+            
+            <form>
+                <label for="nombre_cotiz">Nombre o Empresa:</label><br>
+                <input type="text" id="nombre_cotiz" name="nombre_cotiz" required><br><br>
+
+                <label for="rut_cotiz">RUT:</label><br>
+                <input type="text" id="rut_cotiz" name="rut_cotiz" placeholder="12.345.678-K" required><br><br>
+
+                <label for="email_cotiz">Correo Electrónico:</label><br>
+                <input type="email" id="email_cotiz" name="email_cotiz" required><br><br>
+
+                <label for="telefono_cotiz">Teléfono de Contacto:</label><br>
+                <input type="tel" id="telefono_cotiz" name="telefono_cotiz" required><br><br>
+
+                <label for="detalle_repuesto">Detalle del Repuesto o N° de Chasis/VIN:</label><br>
+                <textarea id="detalle_repuesto" name="detalle_repuesto" rows="4" cols="50" placeholder="Indica código de repuesto, modelo de camión, marca, año o chasis..." required></textarea><br><br>
+
+                <button type="submit">Enviar Solicitud de Cotización</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Sección 5: Ingreso (Clientes Empresas y Administrador) (RF-08, RF-09) -->
+        <section id="ingreso">
+            <h2>Iniciar Sesión</h2>
+
+            <!-- Formulario de Acceso -->
+            <form>
+                <fieldset>
+                    <legend>Ingreso a la Plataforma</legend>
+                    <label for="usuario_rut">RUT (Cliente Empresa / Admin):</label><br>
+                    <input type="text" id="usuario_rut" name="usuario_rut" placeholder="76.xxx.xxx-x" required><br><br>
+
+                    <label for="password">Contraseña:</label><br>
+                    <input type="password" id="password" name="password" required><br><br>
+
+                    <button type="submit">Iniciar Sesión</button>
+                </fieldset>
+            </form>
+
+            <br>
+
+            <!-- Vista simulada del Panel de Administración (RF-09) -->
+            <article>
+                <h3>Panel de Administración - Gestión de Stock y Precios</h3>
+                <p><em>(Vista exclusiva para el administrador / U-03)</em></p>
+                
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Producto</th>
+                            <th>Precio Actual</th>
+                            <th>Stock Actual</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0001</td>
+                            <td>Pastillas de Freno Delanteras</td>
+                            <td><input type="number" value="99990"></td>
+                            <td><input type="number" value="12"></td>
+                            <td><button type="button">Guardar Cambios</button></td>
+                        </tr>
+                        <tr>
+                            <td>0002</td>
+                            <td>Filtro de Aceite</td>
+                            <td><input type="number" value="18500"></td>
+                            <td><input type="number" value="30"></td>
+                            <td><button type="button">Guardar Cambios</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </main>
+
+    <hr>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 RedPar LTDA - Todos los derechos reservados.</p>
+        <p>Sucursal Concepción: Freire 98, Local 1 | Venta de repuestos Scania, Volvo y ZF.</p>
+    </footer>
+
+</body>
+</html>
