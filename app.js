@@ -1,4 +1,4 @@
-// Esperamos a que toda la estructura HTML cargue antes de ejecutar el código
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // =========================================================
