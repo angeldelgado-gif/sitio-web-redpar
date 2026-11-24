@@ -1,0 +1,4 @@
+[
+  { "rut": "12345678-9", "clave": "empresa123", "nombre": "Taller Mecánico Biobío", "tipo": "empresa" },
+  { "rut": "11111111-1", "clave": "admin123", "nombre": "Administrador RedPar", "tipo": "admin" }
+]
