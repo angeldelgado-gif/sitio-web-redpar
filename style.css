@@ -1,280 +1,58 @@
-/* Estilos generales */
-* {
-    box-sizing: border-box;
-}
+/* Estilos propios de RedPar (se usan junto con Bootstrap) */
+/* Colores del ERS: fondo #ECECEC, negro #0A0A0A y rojo del logo */
 
+/* el body ocupa toda la pantalla y el main se estira,
+   así el footer queda abajo aunque la página tenga poco contenido */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 0;
+    background-color: #ececec;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Encabezado y navegación */
-header {
-    background-color: #b22222;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-h1 {
-    margin: 5px;
-    font-size: 36px;
-}
-
-header p {
-    margin: 5px;
-    font-size: 14px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0 5px 0;
-}
-
-nav li {
-    display: inline-block;
-    margin: 5px 10px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #ffcc00;
-}
-
-/* Contenedor principal */
 main {
-    max-width: 1100px;
-    width: 92%;
-    margin: 20px auto;
+    flex: 1;
 }
 
-section {
-    background-color: white;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 6px;
+/* nada redondeado en el sitio: botones, campos, tarjetas, cuadros, etc. */
+* {
+    border-radius: 0 !important;
 }
 
-h2 {
-    color: #b22222;
-    margin-top: 0;
-    border-bottom: 2px solid #fbeeee;
-    padding-bottom: 8px;
+.bg-negro {
+    background-color: #0a0a0a;
 }
 
-h3 {
-    color: #333;
-    margin-top: 0;
+.navbar {
+    border-bottom: 4px solid #c8102e;
 }
 
-.info-sucursal {
-    background-color: #fafafa;
-    padding: 12px 15px;
-    border-left: 4px solid #b22222;
-    margin-top: 15px;
-}
-
-/* Filtros del catálogo */
-.form-filtros {
-    margin-bottom: 20px;
-}
-
-fieldset {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-}
-
-legend {
-    font-weight: bold;
-    color: #b22222;
-    padding: 0 5px;
-}
-
-.fila-filtros {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: flex-end;
-}
-
-.fila-filtros div {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-/* Cuadrícula de productos */
-.grid-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-}
-
-.tarjeta-producto {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 15px;
-    background-color: #fafafa;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.tarjeta-producto p {
-    margin: 5px 0;
-}
-
-.stock-ok {
-    color: #1e7e34;
-    font-weight: bold;
-}
-
-.stock-bajo {
-    color: #b36b00;
-    font-weight: bold;
-}
-
-.stock-agotado {
-    color: #b22222;
-    font-weight: bold;
-}
-
-details {
-    margin: 10px 0;
-    font-size: 14px;
-}
-
-summary {
-    color: #b22222;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.acciones-tarjeta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
-}
-
-/* Botones */
-button {
-    background-color: #b22222;
+.portada {
+    background-color: #0a0a0a;
     color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-weight: bold;
 }
 
-button:hover {
-    background-color: #d63333;
-}
-
-button:disabled {
-    background-color: #999;
-    cursor: not-allowed;
-}
-
-.btn-secundario {
-    background-color: #444;
-}
-
-.btn-secundario:hover {
-    background-color: #666;
-}
-
-/* Formularios verticales (Cotización, Checkout e Ingreso) */
-.form-vertical {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-}
-
-.form-vertical fieldset {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-vertical label {
-    margin-top: 10px;
-    margin-bottom: 4px;
-    font-weight: bold;
-}
-
-.form-vertical button {
-    margin-top: 15px;
-    align-self: flex-start;
-}
-
-input, select, textarea {
-    padding: 7px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    font-family: inherit;
-}
-
-.form-checkout {
-    margin-top: 20px;
-}
-
-.opcion-radio {
-    display: block;
-    margin: 6px 0;
-}
-
-.bloque-boton {
-    margin-top: 15px;
-}
-
-/* Tablas */
-.tabla-responsive {
-    overflow-x: auto;
-}
-
-table {
-    border-collapse: collapse;
+/* fotos del inicio con borde rojo, todas del mismo alto */
+.foto-portada {
     width: 100%;
-    background-color: white;
+    height: 250px;
+    object-fit: cover;
+    border: 4px solid #c8102e;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: #b22222;
+/* icono del carrito en el menú */
+.carrito-nav {
     color: white;
+    font-size: 32px;
+    text-decoration: none;
 }
 
-tr:nth-child(even) {
-    background-color: #fbeeee;
+.carrito-nav .badge {
+    font-size: 14px;
+    vertical-align: middle;
 }
 
-.panel-admin {
-    margin-top: 25px;
-    padding-top: 15px;
-    border-top: 2px dashed #ccc;
+.carrito-nav:hover {
+    color: #c8102e;
 }
 
-/* Pie de página */
-footer {
-    background-color: #333;
-    color: #ddd;
-    text-align: center;
-    font-size: 13px;
-    padding: 15px;
-    margin-top: 20px;
-}

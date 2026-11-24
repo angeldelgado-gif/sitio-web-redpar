@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | RedPar LTDA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="cargarCatalogo()">
+
+    <!-- Menú común en todas las páginas (RF-01) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-negro">
+        <div class="container">
+            <a class="navbar-brand me-4" href="index.html">
+                <img src="img/logo-redpar.png" alt="Logo de RedPar Repuestos Automotrices" height="50">
+            </a>
+
+            <!-- carrito a la derecha, siempre visible (también en celular) -->
+            <a href="carrito.html" class="carrito-nav ms-auto order-lg-last" aria-label="Ir al carrito de compras">
+                <span id="contadorCarrito" class="badge bg-danger">0</span>
+                <i class="bi bi-cart3"></i>
+            </a>
+
+            <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cotizacion.html">Cotización</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ingreso.html">ADMIN</a></li>
+                </ul>
+                <span id="usuarioNav" class="navbar-text ms-auto me-lg-3 small"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido" class="container py-4">
+        <h1 class="text-center text-danger">Catálogo de Repuestos</h1>
+        <p class="text-center">Busca tu repuesto o usa los filtros.</p>
+        <hr>
+
+        <!-- Filtros (RF-02, RF-10) -->
+        <form id="formFiltros" class="bg-white border p-3 mb-3" oninput="filtrar()" onsubmit="return false">
+            <h2 class="h5">Filtros</h2>
+            <div class="row g-2 align-items-end">
+                <div class="col-12 col-lg-2">
+                    <label for="buscar"><b>Buscar:</b></label>
+                    <input type="text" id="buscar" class="form-control" placeholder="Nombre, código o marca">
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label for="tipo"><b>Catálogo:</b></label>
+                    <select id="tipo" name="tipo" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="camion">Camiones y buses</option>
+                        <option value="automovil">Automóviles</option>
+                    </select>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label for="categoria"><b>Categoría:</b></label>
+                    <select id="categoria" name="categoria" class="form-select">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label for="marca"><b>Marca:</b></label>
+                    <select id="marca" name="marca" class="form-select">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label for="stock"><b>Stock:</b></label>
+                    <select id="stock" name="stock" class="form-select">
+                        <option value="">Todo</option>
+                        <option>Disponible</option>
+                        <option>Últimas unidades</option>
+                        <option>Sin stock</option>
+                    </select>
+                </div>
+                <div class="col-8 col-lg-1">
+                    <label for="precioMax"><b>Precio máx:</b></label>
+                    <input type="number" id="precioMax" class="form-control" min="0">
+                </div>
+                <div class="col-4 col-lg-1">
+                    <button type="button" class="btn btn-secondary w-100" onclick="limpiarFiltros()">Limpiar</button>
+                </div>
+            </div>
+        </form>
+
+        <p id="cantidadResultados">Cargando repuestos...</p>
+
+        <!-- las tarjetas se crean con JS: 1 columna en celular, 4 en computador (RNF-01) -->
+        <div id="listaProductos" class="row g-3"></div>
+
+        <!-- Ventana de detalle del repuesto (RF-04) -->
+        <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="detalleTitulo" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title h5" id="detalleTitulo">Detalle</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" id="detalleCuerpo"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página común -->
+    <footer class="bg-negro text-light py-4 mt-4">
+        <div class="container row mx-auto small">
+            <div class="col-md-6">&copy; 2026 RedPar LTDA &middot; Freire 98, Local 1, Concepción</div>
+            <div class="col-md-6 text-md-end">Lunes a viernes de 08:30 a 18:00 hrs &middot; Repuestos Scania, Volvo y ZF</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

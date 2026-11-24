@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | RedPar LTDA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="actualizarNavbar()">
+
+    <!-- Menú común en todas las páginas (RF-01) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-negro">
+        <div class="container">
+            <a class="navbar-brand me-4" href="index.html">
+                <img src="img/logo-redpar.png" alt="Logo de RedPar Repuestos Automotrices" height="50">
+            </a>
+
+            <!-- carrito a la derecha, siempre visible (también en celular) -->
+            <a href="carrito.html" class="carrito-nav ms-auto order-lg-last" aria-label="Ir al carrito de compras">
+                <span id="contadorCarrito" class="badge bg-danger">0</span>
+                <i class="bi bi-cart3"></i>
+            </a>
+
+            <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cotizacion.html">Cotización</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ingreso.html">ADMIN</a></li>
+                </ul>
+                <span id="usuarioNav" class="navbar-text ms-auto me-lg-3 small"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido" class="container py-4">
+        <section class="portada p-4 mb-4">
+            <div class="row align-items-center g-4">
+                <div class="col-md-4">
+                    <img src="img/camion.webp" alt="Camión Volvo azul en carretera" class="foto-portada">
+                </div>
+
+                <!-- Búsqueda rápida desde el inicio (RNF-04). En celular sale primero -->
+                <div class="col-md-4 text-center order-first order-md-0">
+                    <h1>Bienvenido a RedPar</h1>
+                    <form onsubmit="return buscarDesdeInicio()">
+                        <label for="busquedaInicio" class="form-label fs-4">¿Qué repuesto busca?</label>
+                        <input type="text" id="busquedaInicio" class="form-control form-control-lg" placeholder="Ejemplo: Filtro scania" required minlength="2">
+                        <button type="submit" class="btn btn-danger mt-2">Buscar</button>
+                    </form>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="img/repuestos.jpg" alt="Repuestos de motor y transmisión sobre una mesa de taller" class="foto-portada">
+                </div>
+            </div>
+        </section>
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <a href="catalogo.html" class="btn btn-dark w-100">Ver catálogo</a>
+            </div>
+            <div class="col-md-4">
+                <a href="cotizacion.html" class="btn btn-dark w-100">Pedir cotización</a>
+            </div>
+            <div class="col-md-4">
+                <a href="ingreso.html" class="btn btn-dark w-100">Iniciar sesión</a>
+            </div>
+        </div>
+
+        <section class="bg-white p-4 mt-4">
+            <h2 class="h4">Información de la sucursal</h2>
+            <p class="mb-1"><strong>Dirección:</strong> Freire 98, Local 1, Concepción, Región del Biobío.</p>
+            <p class="mb-0"><strong>Horario:</strong> Lunes a viernes de 08:30 a 18:00 hrs.</p>
+        </section>
+    </main>
+
+    <!-- Pie de página común -->
+    <footer class="bg-negro text-light py-4 mt-4">
+        <div class="container row mx-auto small">
+            <div class="col-md-6">&copy; 2026 RedPar LTDA &middot; Freire 98, Local 1, Concepción</div>
+            <div class="col-md-6 text-md-end">Lunes a viernes de 08:30 a 18:00 hrs &middot; Repuestos Scania, Volvo y ZF</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso | RedPar LTDA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="cargarIngreso()">
+
+    <!-- Menú común en todas las páginas (RF-01) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-negro">
+        <div class="container">
+            <a class="navbar-brand me-4" href="index.html">
+                <img src="img/logo-redpar.png" alt="Logo de RedPar Repuestos Automotrices" height="50">
+            </a>
+
+            <!-- carrito a la derecha, siempre visible (también en celular) -->
+            <a href="carrito.html" class="carrito-nav ms-auto order-lg-last" aria-label="Ir al carrito de compras">
+                <span id="contadorCarrito" class="badge bg-danger">0</span>
+                <i class="bi bi-cart3"></i>
+            </a>
+
+            <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cotizacion.html">Cotización</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ingreso.html">ADMIN</a></li>
+                </ul>
+                <span id="usuarioNav" class="navbar-text ms-auto me-lg-3 small"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido" class="container py-4">
+        <h1 class="text-center text-danger">Ingreso</h1>
+        <p class="text-center">Acceso para clientes empresa y para el administrador.</p>
+        <hr>
+
+        <!-- Inicio de sesión empresa / administrador (RF-08) -->
+        <div id="bloqueLogin" class="row">
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <form id="formIngreso" class="bg-white border p-3" onsubmit="return iniciarSesion()">
+                    <h2 class="h5">Iniciar sesión</h2>
+
+                    <label for="rutIngreso"><b>RUT:</b></label>
+                    <input type="text" id="rutIngreso" class="form-control mb-2" placeholder="76.123.456-7" required
+                        pattern="[0-9]{1,2}\.?[0-9]{3}\.?[0-9]{3}-[0-9kK]" title="Formato: 76.123.456-7">
+
+                    <label for="claveIngreso"><b>Contraseña:</b></label>
+                    <input type="password" id="claveIngreso" class="form-control mb-3" required minlength="6">
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="bloqueSesion" class="text-center mb-3" style="display: none">
+            <p><b id="textoSesion"></b></p>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="cerrarSesion()">Cerrar sesión</button>
+        </div>
+
+        <!-- Panel del administrador (RF-09) -->
+        <div id="panelAdmin" style="display: none">
+            <h2 class="h5">Stock y precios</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered bg-white align-middle">
+                    <tr><th>Código</th><th>Producto</th><th>Precio</th><th>Stock</th><th>Acción</th></tr>
+                    <tbody id="tablaAdmin"></tbody>
+                </table>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm mb-4" onclick="restablecerDatos()">Restablecer datos originales</button>
+
+            <h2 class="h5">Cotizaciones recibidas</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered bg-white align-middle">
+                    <tr><th>N°</th><th>Cliente</th><th>Contacto</th><th>Detalle</th><th>Estado</th></tr>
+                    <tbody id="tablaCotizacionesAdmin"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página común -->
+    <footer class="bg-negro text-light py-4 mt-4">
+        <div class="container row mx-auto small">
+            <div class="col-md-6">&copy; 2026 RedPar LTDA &middot; Freire 98, Local 1, Concepción</div>
+            <div class="col-md-6 text-md-end">Lunes a viernes de 08:30 a 18:00 hrs &middot; Repuestos Scania, Volvo y ZF</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

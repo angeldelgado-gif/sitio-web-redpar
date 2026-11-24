@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito | RedPar LTDA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="cargarCarrito()">
+
+    <!-- Menú común en todas las páginas (RF-01) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-negro">
+        <div class="container">
+            <a class="navbar-brand me-4" href="index.html">
+                <img src="img/logo-redpar.png" alt="Logo de RedPar Repuestos Automotrices" height="50">
+            </a>
+
+            <!-- carrito a la derecha, siempre visible (también en celular) -->
+            <a href="carrito.html" class="carrito-nav ms-auto order-lg-last" aria-label="Ir al carrito de compras">
+                <span id="contadorCarrito" class="badge bg-danger">0</span>
+                <i class="bi bi-cart3"></i>
+            </a>
+
+            <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cotizacion.html">Cotización</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ingreso.html">ADMIN</a></li>
+                </ul>
+                <span id="usuarioNav" class="navbar-text ms-auto me-lg-3 small"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="contenido" class="container py-4">
+        <h1 class="text-center text-danger">Carrito de Compras</h1>
+        <p class="text-center">Revisa tus repuestos antes de pagar.</p>
+        <hr>
+
+        <!-- Lista del carrito (RF-05), las filas se crean con JS -->
+        <div class="table-responsive mb-4">
+            <table class="table table-bordered bg-white align-middle">
+                <tr>
+                    <th>Código</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Acción</th>
+                </tr>
+                <tbody id="cuerpoCarrito">
+                    <tr><td colspan="6">Cargando...</td></tr>
+                </tbody>
+                <tr id="filaDescuento" style="display: none">
+                    <th colspan="4" class="text-end">Descuento empresa (10%):</th>
+                    <td colspan="2" id="montoDescuento"></td>
+                </tr>
+                <tr>
+                    <th colspan="4" class="text-end">Total (IVA incluido):</th>
+                    <td colspan="2"><b id="totalCarrito">$0</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Entrega y pago (RF-07) -->
+        <div class="row">
+            <div class="col-md-8 col-lg-6 mx-auto">
+                <form id="formPago" class="bg-white border p-3" onsubmit="return finalizarPedido()">
+                    <h2 class="h5">Datos para el pedido</h2>
+
+                    <label for="nombrePago"><b>Nombre completo:</b></label>
+                    <input type="text" id="nombrePago" class="form-control mb-2" required minlength="3" maxlength="60">
+
+                    <label for="emailPago"><b>Correo:</b></label>
+                    <input type="email" id="emailPago" class="form-control mb-3" required>
+
+                    <h2 class="h5">Entrega</h2>
+                    <input type="radio" name="entrega" id="entregaRetiro" value="retiro" checked onchange="mostrarDireccion()">
+                    <label for="entregaRetiro">Retiro en tienda (Freire 98, Concepción)</label><br>
+                    <input type="radio" name="entrega" id="entregaDespacho" value="despacho" onchange="mostrarDireccion()">
+                    <label for="entregaDespacho">Despacho a domicilio</label>
+
+                    <div id="bloqueDireccion" class="mt-2" style="display: none">
+                        <label for="direccion"><b>Dirección:</b></label>
+                        <input type="text" id="direccion" class="form-control" minlength="5" maxlength="100">
+                    </div>
+
+                    <h2 class="h5 mt-3">Pago</h2>
+                    <label for="medioPago"><b>Medio de pago:</b></label>
+                    <select id="medioPago" class="form-select mb-3" required>
+                        <option value="">Selecciona...</option>
+                        <option value="webpay">Webpay (débito / crédito)</option>
+                        <option value="transferencia">Transferencia bancaria</option>
+                    </select>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger">Finalizar pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página común -->
+    <footer class="bg-negro text-light py-4 mt-4">
+        <div class="container row mx-auto small">
+            <div class="col-md-6">&copy; 2026 RedPar LTDA &middot; Freire 98, Local 1, Concepción</div>
+            <div class="col-md-6 text-md-end">Lunes a viernes de 08:30 a 18:00 hrs &middot; Repuestos Scania, Volvo y ZF</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
