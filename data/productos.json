@@ -1,0 +1,122 @@
+[
+  {
+    "codigo": "0001",
+    "nombre": "Pastillas de freno delanteras",
+    "marca": "Scania",
+    "categoria": "Frenos",
+    "tipo": "camion",
+    "precio": 99990,
+    "stock": 12,
+    "origen": "Suecia",
+    "compatibilidad": "Scania serie P / G / R, años 2010 a 2020",
+    "descripcion": "Juego de pastillas para eje delantero, material semimetálico de alta duración."
+  },
+  {
+    "codigo": "0002",
+    "nombre": "Filtro de aceite",
+    "marca": "Volvo",
+    "categoria": "Motor",
+    "tipo": "camion",
+    "precio": 18500,
+    "stock": 30,
+    "origen": "Suecia",
+    "compatibilidad": "Volvo FH / FM, motores D12 y D13",
+    "descripcion": "Filtro blindado de alta eficiencia para motores diésel."
+  },
+  {
+    "codigo": "0003",
+    "nombre": "Kit de embrague",
+    "marca": "Volvo",
+    "categoria": "Transmisión",
+    "tipo": "camion",
+    "precio": 150000,
+    "stock": 0,
+    "origen": "Alemania",
+    "compatibilidad": "Volvo FH 2008 a 2016",
+    "descripcion": "Kit completo de prensa y disco de embrague para transmisiones pesadas."
+  },
+  {
+    "codigo": "0004",
+    "nombre": "Balatas",
+    "marca": "Scania",
+    "categoria": "Frenos",
+    "tipo": "camion",
+    "precio": 175000,
+    "stock": 3,
+    "origen": "Brasil",
+    "compatibilidad": "Scania serie 4 y serie P",
+    "descripcion": "Juego de balatas para freno de tambor trasero."
+  },
+  {
+    "codigo": "0005",
+    "nombre": "Tambor de freno",
+    "marca": "Iveco",
+    "categoria": "Frenos",
+    "tipo": "camion",
+    "precio": 200000,
+    "stock": 10,
+    "origen": "Italia",
+    "compatibilidad": "Iveco Stralis y Trakker",
+    "descripcion": "Tambor de freno de fundición gris, medida 410 mm."
+  },
+  {
+    "codigo": "0006",
+    "nombre": "Sincronizador de caja",
+    "marca": "ZF",
+    "categoria": "Transmisión",
+    "tipo": "camion",
+    "precio": 89000,
+    "stock": 4,
+    "origen": "Alemania",
+    "compatibilidad": "Cajas ZF 16S y Ecosplit (buses y camiones)",
+    "descripcion": "Anillo sincronizador de bronce para caja de cambios ZF."
+  },
+  {
+    "codigo": "0007",
+    "nombre": "Amortiguador de cabina",
+    "marca": "Scania",
+    "categoria": "Suspensión",
+    "tipo": "camion",
+    "precio": 64990,
+    "stock": 8,
+    "origen": "Suecia",
+    "compatibilidad": "Scania serie R y Streamline",
+    "descripcion": "Amortiguador trasero de cabina, reduce vibraciones al conducir."
+  },
+  {
+    "codigo": "0008",
+    "nombre": "Pastillas de freno Hilux",
+    "marca": "Toyota",
+    "categoria": "Frenos",
+    "tipo": "automovil",
+    "precio": 32990,
+    "stock": 15,
+    "origen": "Japón",
+    "compatibilidad": "Toyota Hilux 2016 a 2023",
+    "descripcion": "Pastillas cerámicas delanteras, bajo nivel de ruido."
+  },
+  {
+    "codigo": "0009",
+    "nombre": "Filtro de aire",
+    "marca": "Hyundai",
+    "categoria": "Motor",
+    "tipo": "automovil",
+    "precio": 9990,
+    "stock": 2,
+    "origen": "Corea del Sur",
+    "compatibilidad": "Hyundai Accent y Elantra 2015 a 2021",
+    "descripcion": "Filtro de aire de papel plisado para motores bencineros."
+  },
+  {
+    "codigo": "0010",
+    "nombre": "Amortiguador delantero",
+    "marca": "Toyota",
+    "categoria": "Suspensión",
+    "tipo": "automovil",
+    "precio": 45500,
+    "stock": 6,
+    "origen": "Japón",
+    "compatibilidad": "Toyota Yaris 2014 a 2020",
+    "descripcion": "Amortiguador a gas, se vende por unidad."
+  }
+]
